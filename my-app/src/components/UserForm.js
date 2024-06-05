@@ -1,26 +1,26 @@
-// src/components/UserForm.js
 import React, { useState, useEffect } from 'react';
 import { TextField, Button, FormControlLabel, Switch } from '@mui/material';
 
 const UserForm = ({ initialData, onSubmit }) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
+  const [password, setPassword] = useState('Ketan1234');
+  const [avatar, setAvatar] = useState('');
   const [status, setStatus] = useState(true);
 
   useEffect(() => {
     if (initialData) {
       setName(initialData.name);
       setEmail(initialData.email);
-      setPhone(initialData.phone);
+      setPassword(initialData.password || '');
+      setAvatar(initialData.avatar || '');
       setStatus(initialData.status);
     }
   }, [initialData]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Form Data:", { name, email, phone, status });
-    onSubmit({ name, email, phone, status });
+    onSubmit({ name, email, password, avatar, status });
   };
 
   return (
@@ -43,9 +43,19 @@ const UserForm = ({ initialData, onSubmit }) => {
         margin="normal"
       />
       <TextField
-        label="Phone"
-        value={phone}
-        onChange={(e) => setPhone(e.target.value)}
+        label="Password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+        type="password"
+        placeholder='Ketan1234'
+        required
+        fullWidth
+        margin="normal"
+      />
+      <TextField
+        label="Avatar URL"
+        value={avatar}
+        onChange={(e) => setAvatar(e.target.value)}
         required
         fullWidth
         margin="normal"

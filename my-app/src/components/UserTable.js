@@ -16,7 +16,7 @@ const UserTable = ({ users }) => {
           <TableRow>
             <TableCell>Name</TableCell>
             <TableCell>Email</TableCell>
-            <TableCell>Phone</TableCell>
+            <TableCell>Avatar</TableCell>
             <TableCell>Status</TableCell>
             <TableCell>Actions</TableCell>
           </TableRow>
@@ -26,7 +26,7 @@ const UserTable = ({ users }) => {
             <TableRow key={user.id}>
               <TableCell>{user.name}</TableCell>
               <TableCell>{user.email}</TableCell>
-              <TableCell>{user.phone}</TableCell>
+              <TableCell><img src={user.avatar} alt="avatar" style={{ width: '50px', height: '50px' }} /></TableCell>
               <TableCell>{user.status ? 'Active' : 'Inactive'}</TableCell>
               <TableCell>
                 <Button variant="contained" color="primary" onClick={() => handleEdit(user.id)}>
