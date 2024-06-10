@@ -1,0 +1,13 @@
+.add-new-post-btn {
+    width: 150px;
+    padding: 10px;
+    cursor: pointer;
+    color: white;
+    background: rgb(83, 220, 238);
+    border-radius: 7px;
+    border: 1px solid;
+}
+.add-new-post-btn:hover{
+    background: rgb(24, 206, 230);
+    color: black;
+}
