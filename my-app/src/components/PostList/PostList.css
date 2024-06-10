@@ -11,3 +11,10 @@
     background: rgb(24, 206, 230);
     color: black;
 }
+.even {
+    background-color: #f0f0f0;
+  }
+  
+  .odd {
+    background-color: #b7f7ec;
+  }

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./EditablePost.css";
 
-const EditablePost = ({ post, onEdit, onDelete }) => {
+const EditablePost = ({ post, onEdit, onDelete, className  }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [editedTitle, setEditedTitle] = useState(post.title);
   const [editedBody, setEditedBody] = useState(post.body);
@@ -23,7 +23,7 @@ const EditablePost = ({ post, onEdit, onDelete }) => {
 
   return (
     <div>
-      <div className="post-view">
+      <div style={{margin:"3px", padding:"5px"}} className={className}>
         <div className="discription-area">
           <h3>Title : {post.title}</h3>
           <p>Body : {post.body}</p>
