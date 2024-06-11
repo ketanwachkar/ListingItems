@@ -4,6 +4,7 @@ import './AddPostModal.css';
 const AddPostModal = ({ isOpen, onRequestClose, onAdd }) => {
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
+  
 
   const handleAdd = () => {
     if (title && body) {

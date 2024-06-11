@@ -5,14 +5,17 @@ import PostList from "./components/PostList/PostList";
 import Stopwatch from "./components/Stopwatch/Stopwatch";
 
 import "./App.css";
+import { Spinner } from "./components/Spinner/Spinner";
 
 const App = () => {
   const [searchQuery, setSearchQuery] = useState("");
+  const [isLoading, setIsLoading ] = useState(false)
   const dispatch = useDispatch();
   const post = useSelector(state => state.postState.posts);
 
   useEffect(() => {
     const fetchPosts = async () => {
+      setIsLoading(true)
       const response = await fetch(
         "https://jsonplaceholder.typicode.com/posts"
       );
@@ -21,6 +24,7 @@ const App = () => {
     };
 
     fetchPosts();
+    setIsLoading(false)
   }, [dispatch]);
 
   return (
@@ -37,6 +41,7 @@ const App = () => {
             onChange={(e) => setSearchQuery(e.target.value)}
           />
         </div>
+        { isLoading && <Spinner/>}
         <Stopwatch />
       </div>
 
